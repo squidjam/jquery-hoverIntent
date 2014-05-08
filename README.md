@@ -1,8 +1,3 @@
-<div id="pageContent">
-
-    <div id="main">
-
-        
 ## What is hoverIntent?
 
         
