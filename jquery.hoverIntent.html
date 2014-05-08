@@ -31,8 +31,8 @@
             $("#demo4").hoverIntent(makeTall,makeShort,'li');
             $("#demo5").hoverIntent(toggleHeight,'li');
             $("#demo6").hoverIntent({
-                over: makeTall,
-                out: makeShort,
+                mouseenter: makeTall,
+                mouseleave: makeShort,
                 selector: 'li'
             });
         }); // close document.ready
@@ -165,13 +165,7 @@ $("#demo6").hoverIntent({
 
 
         <h2 id="defects">Known Defects</h2>
-        <p>hoverIntent r5 suffers from <a href="http://code.google.com/p/chromium/issues/detail?id=68629">a defect in Google Chrome that improperly triggers mouseout when entering a child input[type="text"] element</a>. hoverIntent r6 uses the same mouseenter/mouseleave special events as jQuery's built-in hover, and jQuery 1.5.1 patched this issue. Thanks to Colin Stuart for tipping me off about this and for providing isolated code to demonstrate/test.</p>
-        <p id="chrome9defect" style="background:#eee;margin-bottom:1em;">This page uses jQuery 1.9.1 and hoverIntent r7, so when your cursor goes over the text input nothing should change (it should continue to read "enter parent" because you are still over this paragraph). <br/><input type="text" value=""/><br/> However, if you were using Google Chrome and if this page were using an older version of jQuery or hoverIntent, moving the cursor over the text input would improperly trigger the mouseout event, and the value would change to "leave parent".</p>
-        <script type="text/javascript">
-            function enter(e){$("input", e.target).val("enter parent");}
-            function leave(e){$("input", e.target).val("leave parent");}
-            $("#chrome9defect").hoverIntent(enter,leave);
-        </script>
+
         <p>If you place an element flush against the edge of the browser chrome, sometimes Internet Explorer does not trigger a "mouseleave" event if your cursor leaves the element/browser in that direction. hoverIntent cannot correct for this.</p>
         <p>Please email me <strong>brian(at)cherne(dot)net</strong> if you have questions or would like to notify me of any defects.</p>
 
